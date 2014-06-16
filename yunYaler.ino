@@ -1,4 +1,4 @@
-#define DEBUG false //NOTE: the serial monitor must be opened if debug is true
+#define DEBUG true //NOTE: the serial monitor must be opened if debug is true
 #define RELAYDOMAIN "gsiot-q4f3-p0y9" //Change this to your relay domain
 
 /* 
@@ -70,7 +70,7 @@ and this is done by the runYaler function in this sketch
 
 //======= SOME SETUP HERE ========
 
-boolean debug=DEBUG; //NOTE: the serial monitor must be opened if debug is true
+//boolean debug=DEBUG; //NOTE: the serial monitor must be opened if debug is true
 String relaydomain=RELAYDOMAIN;
 
 //================================
@@ -102,7 +102,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   
   unsigned long pause;
-  if (debug) {
+  if (DEBUG) {
     pause=0UL;
   } else {
     pause=60UL*1000UL;
@@ -132,7 +132,7 @@ void setup() {
     delay(500); 
   }
 
-  if (debug) {
+  if (DEBUG) {
     //this requires a serial cable between arduino and computer. 
     Serial.begin(9600);
     delay(25);
@@ -280,7 +280,7 @@ String tail(String s) {
 }
 
 void printdebug(String s) {
-  if (debug) {
+  if (DEBUG) {
     Serial.print(s);
     Serial.println(char(194));
   }
