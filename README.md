@@ -32,12 +32,12 @@ A full tutorial can be found at http://asynkronix.se/internet-of-things-with-ard
    
     start yunYaler.py with
    
-    python yunYaler.py try.yaler.net gsiot-q4f3-p0y9 nobridge
+    python yunYaler.py try.yaler.net gsiot-abcd-efgh nobridge
    
     nobridge means that there is no bridge communication between the two processors on the Yun
    
 * You can now connect from anywhere with any webbrowser with 
-    http://try.yaler.net/gsiot-q4f3-p0y9/arduino/led/13/1
+    http://try.yaler.net/gsiot-abcd-efgh/arduino/led/13/1
     and Yun should give some response in the ssh terminal
 * download this sketch to the Arduino (you must have changed the relaydomain definition to your domain first). Also set the DEBUG definition to either true or false. true requires serial monitor to be opened
 * wait until the led 13 has stopped blinkning (ca 2 minutes)
@@ -51,18 +51,18 @@ A full tutorial can be found at http://asynkronix.se/internet-of-things-with-ard
     
     set D13 to HIGH (turn built in led on) with 
     
-    http://try.yaler.net/gsiot-q4f3-p0y9/arduino/digital/13/1
+    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13/1
     
     set D13 to LOW (turn built in led off) with
     
-    http://try.yaler.net/gsiot-q4f3-p0y9/arduino/digital/13/0
+    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13/0
     
     read D13 state with 
     
-    http://try.yaler.net/gsiot-q4f3-p0y9/arduino/digital/13
+    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13
     
     read analog input A4 with
     
-    http://try.yaler.net/gsiot-q4f3-p0y9/arduino/analog/4
+    http://try.yaler.net/gsiot-abcd-efgh/arduino/analog/4
     
    
