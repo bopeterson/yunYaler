@@ -68,16 +68,6 @@ and this is done by the runYaler function in this sketch
 */
 #include <Process.h>
 
-//======= SOME SETUP HERE ========
-
-//boolean debug=DEBUG; //NOTE: the serial monitor must be opened if debug is true
-String relaydomain=RELAYDOMAIN;
-
-//================================
-
-
-
-
 String compiletime=__TIME__;
 String compiledate=__DATE__;
 String file=__FILE__;
@@ -176,7 +166,7 @@ void runYaler() {
   p.begin("python");
   p.addParameter("yunYaler.py");
   p.addParameter("try.yaler.net");
-  p.addParameter(relaydomain); 
+  p.addParameter(RELAYDOMAIN); 
   p.addParameter("bridge"); //enable bridge mode
   p.runAsynchronously(); //makes it possible for the arduino to do other things while waiting for yaler request
 }
