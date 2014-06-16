@@ -6,7 +6,7 @@ As a bonus you can also read the analog inputs
 
 A full tutorial can be found at http://asynkronix.se/internet-of-things-with-arduino-yun-and-yaler
 
-* register at try.yaler.net and note your yaler relay domain. 
+* register a yaler account at http://try.yaler.net and note your yaler relay domain. 
 * Change the relay domain definition in this sketch (#define RELAYDOMAIN gsiot-...) to your domain
 * start terminal on mac or equivalent on pc
 * change direcory to the folder where yunYaler.py is located with something like 
