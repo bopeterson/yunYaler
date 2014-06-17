@@ -1,5 +1,5 @@
 #define DEBUG false //NOTE: the serial monitor must be opened if debug is true
-#define RELAYDOMAIN "gsiot-abcd-efgh" //Change this to your relay domain
+#define RELAYDOMAIN "your-relay-domain" //Change this to your relay domain
 
 /* 
 This sketch makes it possible to control the digital outputs of the Yun connected to 
@@ -36,11 +36,11 @@ A full tutorial can be found at http://asynkronix.se/internet-of-things-with-ard
    
    start yunYaler.py with
    
-   python yunYaler.py try.yaler.net gsiot-abcd-efgh nobridge
+   python yunYaler.py try.yaler.net your-relay-domain nobridge
    
    nobridge means that there is no bridge communication between the two processors on the Yun *
    You can now connect from anywhere with any webbrowser with 
-   http://try.yaler.net/gsiot-abcd-efgh/arduino/led/13/1
+   http://try.yaler.net/your-relay-domain/arduino/led/13/1
    and Yun should give some response in the ssh terminal
  7) download this sketch to the Arduino (you must have changed the relaydomain definition to your domain first). Also set the DEBUG definition to either true or false. true requires serial monitor to be opened
  8) wait until the led 13 has stopped blinkning (ca 2 minutes)
@@ -50,18 +50,18 @@ A full tutorial can be found at http://asynkronix.se/internet-of-things-with-ard
     until the serial monitor is opened
  9) Test it!
     set D13 to HIGH (turn built in led on) with 
-    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13/1
+    http://try.yaler.net/your-relay-domain/arduino/digital/13/1
     set D13 to LOW (turn built in led off) with
-    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13/0
+    http://try.yaler.net/your-relay-domain/arduino/digital/13/0
     read D13 state with 
-    http://try.yaler.net/gsiot-abcd-efgh/arduino/digital/13
+    http://try.yaler.net/your-relay-domain/arduino/digital/13
     read analog input A4 with
-    http://try.yaler.net/gsiot-abcd-efgh/arduino/analog/4
+    http://try.yaler.net/your-relay-domain/arduino/analog/4
     
    
 * the command for running yunYaler.py with the bridge enabled is
 
-python yunYaler.py try.yaler.net gsiot-abcd-efgh bridge 
+python yunYaler.py try.yaler.net your-relay-domain bridge 
 
 and this is done by the runYaler function in this sketch
 
@@ -87,9 +87,18 @@ char frompython[33]; //data read from bridge that was put by python. temporary s
 String lastTime; //time when data was read from the bridge
 
 void setup() {
-  lastTime="99:99:99";
-  // set the digital pin as output:
   pinMode(ledPin, OUTPUT);
+  if (RELAYDOMAIN=="your-relay-domain") {
+    while (true) {
+      //stop the program and turn led 13 solid on if
+      //RELAYDOMAIN is not changed to your yaler domain
+      digitalWrite(ledPin,HIGH); 
+    }
+  }
+  // set the digital pin as output:
+
+  lastTime="99:99:99";
+
   
   unsigned long pause;
   if (DEBUG) {
