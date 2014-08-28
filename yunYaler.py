@@ -4,6 +4,7 @@
 # modified for Arduino Yun by Bo Peterson www.asynkronix.se
 # 
 # Updated 2014-08-28 with timeout to solve stability issue
+# Note: this version has not been fully tested yet. 
 
 import sys
 import time
